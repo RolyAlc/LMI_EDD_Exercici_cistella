@@ -1,6 +1,13 @@
+// cistella.js (Mòdul principal)
 import readlineSync from 'readline-sync';
 
 // TO-DO
+// Implementa una classe Producte, amb les propietats (que podran inicialitzar-se en el constructor):
+// - descripcio: amb la descripció del producte
+// - preu: el preu per unitat del producte
+// I el mètode (funció):
+// - toString(): que retorna un strin format per la descripció i el preu, amb el format "proucte - preu €".
+
 class Producte {
     constructor(descripcio, preu){
         this.descripcio = descripcio;
@@ -12,6 +19,19 @@ class Producte {
 }
 
 // TO-DO
+// Implementa una classe cistella, que contindrà com a propietat
+// - Un vector (inicialment buit), al que afegirem parells JSON {producte, quantitat}
+
+// Aquesta classe suportarà els mètodes (funcions internes a la classe)
+// - afegirProducte(producte, quantitat): Que afegirà a la llista de productes el producte indicat i la quantitat. 
+//       Ajuda: Si la llista de productes es diu productes (this.productes), farem:
+//           this.productes.push({ producte, quantitat: parseInt(quantitat) }); // L'ordre push permet afegir un element al final del vector
+ 
+// - mostrarCistella(): Aquest mètode recorrerà tota la llista/vector de productes i els anirà mostrant, 
+//                      fent ús del mètode show del producte. 
+//                      A més, calcularà el subtotal per cada línia (multiplicant) el preu unitari per la quantitat,
+//                      I al final mostrarà el preu total, com a suma de tots els subtotals
+
 class Cistella {
     constructor(){
         this.productes=[];
@@ -32,6 +52,7 @@ class Cistella {
         console.log("Total" + total.toFixed(2) + "€")
     }
 }
+
 
 // Funció per mostrar ajuda
 function mostraAjuda() {
@@ -56,16 +77,23 @@ function afegirProducte(cistella) {
         console.log('Error: La quantitat ha de ser un número positiu.');
         return;
     }
-    
+
+    // TO-DO: Crea un nou producte anb les dades que s'han introduit, 
+    // i afig-lo a la cistella.
+
     const producte = new Producte(nom, parseFloat(preu));
     cistella.afegirProducte(producte, quantitat);
 
-    console.log("Producte afegir correctament a la cistella!!!");    
+    console.log("Producte afegir correctament a la cistella!!!");
+
+    //console.log("Funcionalitat per implementar!!");    
 }
 
 // Funció principal
 function iniciarAplicacio() {
-        
+    
+    // TO-DO:
+    // Crea un objecte de tipus cistella
     const cistella = new Cistella();
 
     let ordre;
@@ -78,11 +106,11 @@ function iniciarAplicacio() {
         switch (ordre) {
             case 'add':
                 console.log("Funció per implementar");
-                afegirProducte(cistella);
+                afegirProducte(cistella); // TO-DO: Descomentar quan es tinga implementat
                 break;
             case 'show':
                 console.log("Funció per implementar");
-                cistella.mostrarCistella();
+                cistella.mostrarCistella(); // TO-DO: Descomentar quan es tinga implementat
                 break;
             case 'help':
                 mostraAjuda();
