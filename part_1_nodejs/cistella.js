@@ -1,17 +1,17 @@
 import readlineSync from 'readline-sync';
 
-// TO-DO
+// clase producto
 class Producte {
     constructor(descripcio, preu){
         this.descripcio = descripcio;
-        this.preu = preu;
+        this.preu = parseFloat(preu);
     }
     toString(){
         return this.descripcio + " - " + this.preu.toFixed(2) + " €";
     }
 }
 
-// TO-DO
+// clase cistella
 class Cistella {
     constructor(){
         this.productes=[];
