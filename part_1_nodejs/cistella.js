@@ -41,7 +41,7 @@ class Cistella {
     }
     mostrarCistela(){
         let total=0;
-        console.log("*****Cistella:*****");
+        console.log("\n--- Contingut de la Cistella ---");
         
         this.productes.forEach(({producte, quantitat}) => {
             const subtotal = producte.preu * quantitat;
