@@ -8,16 +8,6 @@ import readlineSync from 'readline-sync';
 // I el mètode (funció):
 // - toString(): que retorna un strin format per la descripció i el preu, amb el format "proucte - preu €".
 
-class Producte {
-    constructor(descripcio, preu){
-        this.descripcio = descripcio;
-        this.preu = preu;
-    }
-    toString(){
-        return this.descripcio + " - " + this.preu + "€";
-    }
-}
-
 // TO-DO
 // Implementa una classe cistella, que contindrà com a propietat
 // - Un vector (inicialment buit), al que afegirem parells JSON {producte, quantitat}
@@ -31,27 +21,6 @@ class Producte {
 //                      fent ús del mètode show del producte. 
 //                      A més, calcularà el subtotal per cada línia (multiplicant) el preu unitari per la quantitat,
 //                      I al final mostrarà el preu total, com a suma de tots els subtotals
-
-class Cistella {
-    constructor(){
-        this.productes=[];
-    }
-    afegirProducte(producte, quantitat){
-        this.productes.push({producte, quantitat: parseInt(quantitat)});
-    }
-    mostrarCistela(){
-        let total=0;
-        console.log("*****Cistella:*****");
-        
-        this.productes.forEach(({producte, quantitat}) => {
-            const subtotal = producte.preu * quantitat;
-            total += subtotal;
-            console.log (producte.toString() + " x " + quantitat + " = " + subtotal.toFixed(2) + "€");
-        });
-
-        console.log("Total" + total.toFixed(2) + "€")
-    }
-}
 
 
 // Funció per mostrar ajuda
@@ -81,12 +50,9 @@ function afegirProducte(cistella) {
     // TO-DO: Crea un nou producte anb les dades que s'han introduit, 
     // i afig-lo a la cistella.
 
-    const producte = new Producte(nom, parseFloat(preu));
-    cistella.afegirProducte(producte, quantitat);
+    console.log("Funcionalitat per implementar!!");
 
-    console.log("Producte afegir correctament a la cistella!!!");
-
-    //console.log("Funcionalitat per implementar!!");    
+    
 }
 
 // Funció principal
@@ -94,7 +60,6 @@ function iniciarAplicacio() {
     
     // TO-DO:
     // Crea un objecte de tipus cistella
-    const cistella = new Cistella();
 
     let ordre;
 
@@ -106,11 +71,11 @@ function iniciarAplicacio() {
         switch (ordre) {
             case 'add':
                 console.log("Funció per implementar");
-                afegirProducte(cistella); // TO-DO: Descomentar quan es tinga implementat
+                // afegirProducte(cistella); // TO-DO: Descomentar quan es tinga implementat
                 break;
             case 'show':
                 console.log("Funció per implementar");
-                cistella.mostrarCistella(); // TO-DO: Descomentar quan es tinga implementat
+                // cistella.mostrarCistella(); // TO-DO: Descomentar quan es tinga implementat
                 break;
             case 'help':
                 mostraAjuda();
