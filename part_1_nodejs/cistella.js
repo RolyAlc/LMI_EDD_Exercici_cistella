@@ -7,7 +7,7 @@ class Producte {
         this.preu = preu;
     }
     toString(){
-        return this.descripcio + " - " + this.preu + "€";
+        return this.descripcio + " - " + this.preu.toFixed(2) + " €";
     }
 }
 
@@ -19,27 +19,27 @@ class Cistella {
     afegirProducte(producte, quantitat){
         this.productes.push({producte, quantitat: parseInt(quantitat)});
     }
-    mostrarCistela(){
+    mostrarCistella(){
         let total=0;
         console.log("\n--- Contingut de la Cistella ---");
         
-        this.productes.forEach(({producte, quantitat}) => {
+        this.productes.forEach(({producte, quantitat}, index) => {
             const subtotal = producte.preu * quantitat;
             total += subtotal;
-            console.log (producte.toString() + " x " + quantitat + " = " + subtotal.toFixed(2) + "€");
+            console.log ((index+1) + ". " + producte.toString() + " x " + quantitat + " unitats = Subtotal: " + subtotal.toFixed(2) + " €");
         });
 
-        console.log("Total" + total.toFixed(2) + "€")
+        console.log("\nPreu Total: " + total.toFixed(2) + " €\n")
     }
 }
 
 // Funció per mostrar ajuda
 function mostraAjuda() {
-    console.log('Ajuda. Ordres permeses:\n');
+    console.log('\nAjuda. Ordres permeses:\n');
     console.log('\thelp: Mostra aquesta ajuda');
     console.log('\texit: Ix de l\'aplicació');
     console.log('\tadd: Afig un nou producte a la cistella');
-    console.log('\tshow: Mostra el contingut de la cistella');
+    console.log('\tshow: Mostra el contingut de la cistella\n');
 }
 
 // Funció per afegir un producte
@@ -60,7 +60,7 @@ function afegirProducte(cistella) {
     const producte = new Producte(nom, parseFloat(preu));
     cistella.afegirProducte(producte, quantitat);
 
-    console.log("Producte afegir correctament a la cistella!!!");    
+    console.log("✅ Producte afegir correctament a la cistella!\n");    
 }
 
 // Funció principal
@@ -70,18 +70,16 @@ function iniciarAplicacio() {
 
     let ordre;
 
-    console.log("🎄 Benvingut a l'aplicació de la Cistella de Nadal! 🎄");
+    console.log("🎄 Benvingut a l'aplicació de la Cistella de Nadal! 🎄\n");
 
     do {
         ordre = readlineSync.question('🎄> ').trim().toLowerCase();
 
         switch (ordre) {
-            case 'add':
-                console.log("Funció per implementar");
+            case 'add':                
                 afegirProducte(cistella);
                 break;
-            case 'show':
-                console.log("Funció per implementar");
+            case 'show':                
                 cistella.mostrarCistella();
                 break;
             case 'help':
