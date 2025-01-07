@@ -20,16 +20,28 @@ class Cistella {
         this.productes.push({producte, quantitat: parseInt(quantitat)});
     }
     mostrarCistella(){
+        // Otra manera***
+        let subtotal=0;
         let total=0;
+        
         console.log("\n--- Contingut de la Cistella ---");
         
-        this.productes.forEach(({producte, quantitat}, index) => {
-            const subtotal = producte.preu * quantitat;
+        for (let i = 0; i < this.productes.length; i++){
+            let producte = this.productes[i]
+            subtotal = producte.producte.preu * producte.quantitat;
+            console.log ((i+1) + ". " + producte.producte.toString() + " x " + producte.quantitat + " unitats = Subtotal: " + subtotal.toFixed(2) + " €");
             total += subtotal;
-            console.log ((index+1) + ". " + producte.toString() + " x " + quantitat + " unitats = Subtotal: " + subtotal.toFixed(2) + " €");
-        });
-
+        }
+        
         console.log("\nPreu Total: " + total.toFixed(2) + " €\n")
+        
+        // this.productes.forEach(({producte, quantitat}, index) => {
+        //     const subtotal = producte.preu * quantitat;
+        //     total += subtotal;
+        //     console.log ((index+1) + ". " + producte.toString() + " x " + quantitat + " unitats = Subtotal: " + subtotal.toFixed(2) + " €");
+        // });
+            
+        // console.log("\nPreu Total: " + total.toFixed(2) + " €\n")
     }
 }
 
