@@ -1,5 +1,6 @@
 // TODO: document.addEventListener > Utilizara estoç
 // TODO: hacer prueba de error en caso de que el precio sea un numero y no una letra
+
 class Producte{
     constructor(descripcio, preu, quantitat){
         this.descripcio = descripcio;
@@ -42,14 +43,19 @@ class Cistella {
     }
     configurarBotonAfegir(){
         const botoAfegir = document.querySelector('#afegir');
+        // self ya q dentor de la función anonima, esta no cambie y apunte a class Cistella
         const self = this;
+        //evento
         botoAfegir.onclick = function(){
+            // recupera los valores de los campos formularios
             const desc = document.querySelector('#desc').value;
             const preu = document.querySelector('#preu').value;
             const quantitat = document.querySelector('#quantitat').value;
-
+            // Verificar si se han completa los campos correspondiente => desc no esta vacio
             if (desc && preu && quantitat) {
+                // crea una nueva instancia
                 const producte = new Producte(desc, preu, quantitat);
+                //llama al metodo
                 self.afegirProducte(producte);
             } else {
                 alert("Complete los campos.");
@@ -82,5 +88,5 @@ class Cistella {
         this.totalHTML.textContent=this.total.toFixed(2) + ' €';
     }
 }
-
+//Crea nueva instancia e inicializa la class Cistella
 const cistella = new Cistella();
